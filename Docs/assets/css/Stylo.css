@@ -251,8 +251,7 @@ body {
    RESPONSIVO (Celulares y Tablets)
    ========================================================================== */
 @media (max-width: 992px) {
-    .hero-section {
-        /* Degradado de ARRIBA hacia ABAJO para que el texto se lea bien */
+   .hero-section {
         background-image: 
             linear-gradient(to bottom, 
                 rgba(18, 18, 18, 0.95) 0%,     
@@ -261,15 +260,14 @@ body {
             ),
             url('../Imagenes/Motos/Eki_motos.jpg');
         
-        /* Mueve el foco de la imagen hacia la derecha (donde está la moto) */
-        background-position: 85% center; 
+        
+        background-position: 55% bottom; 
         
         display: flex;
         flex-direction: column;
         justify-content: center;
         text-align: center;
         
-        /* El padding de 100px abajo evita que el contenido choque con WhatsApp */
         padding: 4rem 5% 100px 5%; 
         min-height: calc(100vh - 70px);
     }
