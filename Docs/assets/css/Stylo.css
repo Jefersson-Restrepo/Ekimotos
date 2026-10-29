@@ -252,41 +252,48 @@ body {
    ========================================================================== */
 @media (max-width: 992px) {
     .hero-section {
-        /* 1. Degradado de ARRIBA hacia ABAJO para celulares */
+        /* Degradado de ARRIBA hacia ABAJO para que el texto se lea bien */
         background-image: 
             linear-gradient(to bottom, 
-                rgba(18, 18, 18, 0.95) 0%,     /* Arriba bien oscuro para leer el texto */
-                rgba(18, 18, 18, 0.85) 45%,    
-                rgba(18, 18, 18, 0.2) 75%,     /* Abajo transparente para ver la moto */
-                rgba(18, 18, 18, 0.1) 100%
+                rgba(18, 18, 18, 0.95) 0%,     
+                rgba(18, 18, 18, 0.75) 45%,    
+                rgba(18, 18, 18, 0.3) 100%
             ),
             url('../Imagenes/Motos/Eki_motos.jpg');
         
-        /* 2. Reposicionamos la imagen para que la moto no se corte */
-        background-position: 75% bottom; 
+        /* Mueve el foco de la imagen hacia la derecha (donde está la moto) */
+        background-position: 85% center; 
         
-        /* 3. Empujamos el texto hacia arriba */
-        align-items: flex-start;
-        padding-top: 15vh;
-        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         text-align: center;
+        
+        /* El padding de 100px abajo evita que el contenido choque con WhatsApp */
+        padding: 4rem 5% 100px 5%; 
+        min-height: calc(100vh - 70px);
     }
 
     .hero-content {
         align-items: center;
+        width: 100%;
         max-width: 100%;
     }
 
-    /* 4. Apilamos los botones para que no se aprieten en el celular */
+    .hero-title {
+        font-size: 2.2rem; /* Ajusta un poco el tamaño en celular */
+    }
+
+    /* Apila los botones de arriba hacia abajo */
     .hero-actions {
-        justify-content: center;
         flex-direction: column; 
         width: 100%;
+        gap: 1rem; /* Da un respiro entre botón y botón */
     }
 
     .hero-actions .btn {
-        width: 100%; /* Botones anchos para tocar fácil con el dedo */
-        margin-bottom: 10px;
+        width: 100%; /* Botones anchos, fáciles de tocar con el dedo */
+        margin: 0;
     }
 
     /* Activar el botón de menú hamburguesa */
