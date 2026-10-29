@@ -1,0 +1,297 @@
+/* ==========================================================================
+   EKI MOTOS - VARIABLES & RESET
+   ========================================================================== */
+:root {
+    --bg-dark: #121212;         /* Negro Carbón/Mate principal */
+    --bg-card: #1A1A1A;         /* Tono más suave para paneles */
+    --accent-orange: #FF5A00;   /* Naranja KTM vibrante */
+    --accent-red: #D61C1C;      /* Rojo de acentos */
+    --text-white: #F3F3F3;      /* Blanco roto para no cansar la vista */
+    --text-gray: #A0A0A0;       /* Gris claro */
+    --font-primary: 'Arial', sans-serif;
+    --transition: all 0.3s ease-in-out;
+}
+
+/* CORREGIDO: Se cambió "-" por "*" */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    font-family: var(--font-primary);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   NAVEGACIÓN / HEADER (Responsivo y semántico)
+   ========================================================================== */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: rgba(18, 18, 18, 0.95);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid var(--accent-orange);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    /* Crea un degradado negro circular detrás del logo transparente */
+    background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(18,18,18,0) 70%);
+    padding: 10px;
+    border-radius: 50%; /* Hace que el degradado se difumine suavemente */
+}
+
+.logo-img {
+    height: 70px;
+    width: auto;
+    object-fit: contain;
+    transition: var(--transition);
+    /* Le da un brillo sutil al contorno del logo para despegarlo del fondo */
+    filter: drop-shadow(0 0 12px rgba(255, 90, 0, 0.4));
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-white);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    transition: var(--transition);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--accent-orange);
+}
+
+/* Botón CTA del menú */
+.btn-cta-nav {
+    background-color: var(--accent-orange);
+    color: var(--text-white) !important;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    border: 1px solid var(--accent-orange);
+}
+
+.btn-cta-nav:hover {
+    background-color: transparent;
+    color: var(--accent-orange) !important;
+}
+
+.nav-toggle {
+    display: none; /* Se activa en responsive */
+    background: none;
+    border: none;
+    color: var(--text-white);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   HERO CON IMAGEN DE FONDO COMPLETA (INMERSIVA)
+   ========================================================================== */
+.hero-section {
+    /* CORREGIDO: Se agregó "../" para salir de la carpeta css */
+    background-image: 
+        linear-gradient(to right, 
+            rgba(18, 18, 18, 0.95) 0%,     /* Negro casi opaco a la izquierda para el texto */
+            rgba(18, 18, 18, 0.8) 35%,     /* Sigue oscuro donde va el texto */
+            rgba(18, 18, 18, 0.3) 70%,     /* Se empieza a aclarar para ver la moto */
+            rgba(18, 18, 18, 0.1) 100%     /* Totalmente visible a la derecha */
+        ),
+        url('../Imagenes/Motos/Eki_motos.jpg'); 
+    
+    background-size: cover;          /* Hace que la imagen cubra toda la pantalla */
+    background-position: center right; /* Centra la moto a la derecha en PC */
+    background-repeat: no-repeat;
+    background-attachment: scroll;   
+    
+    display: flex;
+    align-items: center;             /* Centra verticalmente el contenido */
+    min-height: calc(100vh - 85px);  /* Ocupa el alto de la pantalla menos el header */
+    padding: 2rem 8%;                /* Espaciado interno */
+    position: relative;
+    width: 100%;
+}
+
+/* Ajustes del contenedor del texto */
+.hero-content {
+    max-width: 650px;                /* Limitamos el ancho para que no tape la moto */
+    z-index: 2;                      /* Lo posiciona por encima del fondo */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.1;
+    font-weight: 900;
+    color: var(--text-white);
+    margin-bottom: 1.5rem;
+}
+
+.hero-title .highlight {
+    color: var(--accent-orange);
+    text-shadow: 0 0 10px rgba(255, 90, 0, 0.3);
+}
+
+.hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: var(--text-gray);
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1.5rem;
+}
+
+/* Botones genéricos de acción */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background-color: var(--accent-orange);
+    color: var(--text-white);
+    border: 2px solid var(--accent-orange);
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--accent-orange);
+    box-shadow: 0 0 15px rgba(255, 90, 0, 0.4);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-white);
+    border: 2px solid var(--text-white);
+}
+
+.btn-secondary:hover {
+    border-color: var(--accent-orange);
+    color: var(--accent-orange);
+}
+
+/* Ajustes para la gran imagen de KTM */
+.hero-visual {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-img {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    filter: drop-shadow(0 0 10px rgba(255, 90, 0, 0.1));
+}
+
+/* Botón de WhatsApp flotante */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #25D366;
+    color: var(--text-white);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    z-index: 1001;
+    transition: var(--transition);
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+}
+
+/* ==========================================================================
+   RESPONSIVO (Celulares y Tablets)
+   ========================================================================== */
+@media (max-width: 992px) {
+    .hero-section {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: 4rem;
+    }
+
+    .hero-content {
+        align-items: center;
+    }
+
+    .hero-actions {
+        justify-content: center;
+    }
+
+    .hero-visual {
+        order: -1; 
+    }
+
+    /* Activar el botón de menú hamburguesa */
+    .nav-toggle {
+        display: block;
+    }
+
+    /* Ocultar menú en móviles por defecto */
+    .main-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--bg-dark);
+        border-bottom: 2px solid var(--accent-orange);
+        padding: 2rem 0;
+    }
+
+    .main-nav.active {
+        display: block;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+}

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eki Motos | Taller de Motos de Confianza</title>
+
+    <link rel="stylesheet" href="Docs/assets/css/Stylo.css" />
+    <!-- Iconos de FontAwesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- CABECERA PRINCIPAL-->
+    <header class="main-header">
+      <a href="index.html" class="logo-container">
+        <img
+          src="Docs/assets/Imagenes/Logo/logo_ekimotos.png"
+          alt="Logo de Eki Motos"
+          class="logo-img"
+        />
+      </a>
+
+      <!-- Toggle para versión móvil, accesible -->
+      <button class="nav-toggle" aria-label="Abrir menú">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Inicio</a></li>
+          <li><a href="motos.html">Motos</a></li>
+          <li><a href="servicio.html">Servicios</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li>
+            <a href="agenda_tu_cita.html" class="btn-cta-nav">AGENDAR CITA</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Eliminado el <main> duplicado -->
+    <main>
+      <!-- La sección ahora tendrá el fondo inyectado por CSS -->
+      <section class="hero-section" id="inicio">
+        <!-- Contenido textual, la imagen será el fondo de toda la sección -->
+        <article class="hero-content">
+          <h1 class="hero-title">EL TALLER DE <span class="highlight">CONFIANZA</span> PARA TU MOTO</h1>
+          <p class="hero-subtitle">
+            Especialistas en motos de alto cilindraje, mantenimiento, diagnóstico y repuestos.
+          </p>
+          <nav class="hero-actions">
+            <a href="agenda_tu_cita.html" class="btn btn-primary">RESERVAR SERVICIO</a>
+            <a href="servicio.html" class="btn btn-secondary">VER SERVICIOS</a>
+          </nav>
+        </article>
+      </section>
+    </main>
+
+    <!-- Botón flotante directo para WhatsApp -->
+    <a
+      href="https://wa.me/tu_numero"
+      class="whatsapp-btn"
+      target="_blank"
+      aria-label="Escríbenos por WhatsApp"
+    >
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script src="Docs/assets/JS/script.js"></script>
+  </body>
+</html>
