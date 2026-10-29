@@ -252,21 +252,41 @@ body {
    ========================================================================== */
 @media (max-width: 992px) {
     .hero-section {
-        grid-template-columns: 1fr;
+        /* 1. Degradado de ARRIBA hacia ABAJO para celulares */
+        background-image: 
+            linear-gradient(to bottom, 
+                rgba(18, 18, 18, 0.95) 0%,     /* Arriba bien oscuro para leer el texto */
+                rgba(18, 18, 18, 0.85) 45%,    
+                rgba(18, 18, 18, 0.2) 75%,     /* Abajo transparente para ver la moto */
+                rgba(18, 18, 18, 0.1) 100%
+            ),
+            url('../Imagenes/Motos/Eki_motos.jpg');
+        
+        /* 2. Reposicionamos la imagen para que la moto no se corte */
+        background-position: 75% bottom; 
+        
+        /* 3. Empujamos el texto hacia arriba */
+        align-items: flex-start;
+        padding-top: 15vh;
+        min-height: 100vh;
         text-align: center;
-        padding-top: 4rem;
     }
 
     .hero-content {
         align-items: center;
+        max-width: 100%;
     }
 
+    /* 4. Apilamos los botones para que no se aprieten en el celular */
     .hero-actions {
         justify-content: center;
+        flex-direction: column; 
+        width: 100%;
     }
 
-    .hero-visual {
-        order: -1; 
+    .hero-actions .btn {
+        width: 100%; /* Botones anchos para tocar fácil con el dedo */
+        margin-bottom: 10px;
     }
 
     /* Activar el botón de menú hamburguesa */
